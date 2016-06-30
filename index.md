@@ -31,16 +31,16 @@ JavaScript interpreters are built into modern browsers, so there is nothing to i
 
 ## Data Types
 
-| Type      | Examples                              |
-|-----------+---------------------------------------|
-| Number    | 42, 0.4, NaN                          |
-| String    | "Hello, World!"                       |
-| Boolean   | true, false                           |
-| Object    | Constructors: Array, Date, Function   |
-|           | Literals: {"key": value, ... }        |
-| undefined | the value of un-initialized variables |
-| null      | deliberate non-value                  |
-| Symbol    |                                       |
+| Type      | Examples                                  |
+|-----------+-------------------------------------------|
+| Number    | 42, 0.4, NaN                              |
+| String    | "Hello, World!"                           |
+| Boolean   | true, false                               |
+| Object    | Constructors: Array(), Date(), Function() |
+|           | Literals: {"key": value, ... }            |
+| undefined | the value of un-initialized variables     |
+| null      | deliberate non-value                      |
+| Symbol    |                                           |
 
 Try in your browser JavaScript console.
 
