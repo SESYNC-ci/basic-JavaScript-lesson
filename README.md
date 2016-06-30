@@ -1,1 +1,1 @@
-### https://sesync-ci.github.io/basic-SQL-lesson
+### https://sesync-ci.github.io/basic-JavaScript-lesson
