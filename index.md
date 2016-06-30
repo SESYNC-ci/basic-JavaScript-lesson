@@ -11,15 +11,18 @@
 
 JavaScript interpreters are built into modern browsers, so there is nothing to install if you already have Chrome, IE, Safari, Firefox, etc ...
 
-	<!doctype html>
-	<html>
-	  <body>
-		<script type="text/javascript">
-		var hello = "Hello, World!"
-		console.log(hello)
-		</script>
-	  <body>
-	</html>
+~~~
+<!doctype html>
+<html>
+  <body>
+	<script type="text/javascript">
+	var hello = "Hello, World!"
+	console.log(hello)
+	</script>
+  <body>
+</html>
+~~~
+{:.text-document}
 
 ## Modularization/Encapsulation
 
@@ -45,6 +48,7 @@ Try in your browser JavaScript console.
 console.log(1 + 1 == 2)
 ~~~
 {:.input}
+
 ~~~
 true
 ~~~

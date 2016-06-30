@@ -7,4 +7,18 @@
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
   <link rel="stylesheet" href="{{ site.baseurl }}/stylesheets/styles.css">
+  <style type="text/css">
+   .text-document {
+       background-color: #000000;
+       text-color: #FFFFFF;
+   }
+
+   .input pre {
+       background-color: #EBECE4;
+   }
+   
+   .output pre {
+       background-color: #ECECC7;
+   }
+  </style>
 </head>
