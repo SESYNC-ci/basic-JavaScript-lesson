@@ -3,6 +3,8 @@
 
 # One Hour with JavaScript
 
+Instructor: Ian Carroll
+
 - The *de facto* scripting language for the world wide web
 - Object oriented, but without classes (no, really!) 
 - Syntax reminiscent of Java (duh!) and C
