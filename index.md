@@ -22,7 +22,7 @@ JavaScript interpreters are built into modern browsers, so there is nothing to i
   <body>
     <script>
       var hello = "Hello, World!";
-      console.log(hello)
+      console.log(hello);
     </script>
   </body>
 </html>
@@ -125,7 +125,7 @@ function Dog() {
     };
 };
 var rex = new Dog();               // Instantiate an object of "class" Dog
-rex.speak();                       // God dog, Rex!
+rex.speak();                       // Good dog, Rex!
 ~~~
 {:.text-document title="rex.js"}
 
@@ -172,7 +172,7 @@ Remember, JavaScript is meant to be interpreted online, so you can "import" any 
 <!doctype html>
 <html>
   <body>
-    <div id="figure-1"></div>
+    <div id="fig-1"></div>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
     <script src="viz.js"></script>
@@ -181,7 +181,7 @@ Remember, JavaScript is meant to be interpreted online, so you can "import" any 
 ~~~
 {:.text-document title="index.html"}
 
-Aside from importing Plotly.js and d3.js, the webpage now includes a `div` element identified as `figure-1`. A `div` element is a division, or section, of an HTML document. The `id` attribute is special in that its value is assumed to be unique within all elements of a webpage. Initially, the `div` has no content; the following script will add all the SVG elements to create the figure.
+Aside from importing Plotly.js and d3.js, the webpage now includes a `div` element identified as `fig-1`. A `div` element is a division, or section, of an HTML document. The `id` attribute is special in that its value is assumed to be unique within all elements of a webpage. Initially, the `div` has no content; the following script will add all the SVG elements to create the figure.
 
 ~~~
 data = [{
@@ -192,7 +192,7 @@ layout = {
     title: "Fibonacci Sequence",
 };
 
-Plotly.plot("figure-1", data, layout)
+Plotly.plot("fig-1", data, layout)
 ~~~
 {:.text-document title="viz.js"}
 
@@ -216,7 +216,7 @@ We are going to plot real-time streamflow data aquired from a USGS web service. 
 
 ~~~
 function callback(response) {
-    var pre = document.createElement('pre');
+    var pre = document.createElement("pre");
     pre.textContent = JSON.stringify(response, null, 4);
     document.body.appendChild(pre);
 };
@@ -226,21 +226,18 @@ d3.json(url, callback)
 ~~~
 {:.text-document title="json.js"}
 
-The parameters embedded in the URL specify a data format, monitoring site, time period and observation variable. The callback function, which evaluates once the function `d3.json` receives a response from `waterservices.usgs.gov`, prints a string representation of the JSON object retrieved.
+The parameters embedded in the URL specify a data format, monitoring site, time period and observation variable. The callback function only evaluates after the function `d3.json` receives a response from `waterservices.usgs.gov`. This callback just prints a string representation of the JSON object retrieved.
 
 To plot the data, we need to process the JSON object into `x` and `y` data arrays before calling `Plotly.plot`.
 
 ~~~
 function processTimeSeries(timeSeries) {
     var ts = timeSeries.values[0].value;
-    var n = ts.length;
-    var x = new Array(n);
-    var y = new Array(n);
-    for (let i = 0; i < n; i++) {
-        y[i] = ts[i].value;
-        x[i] = d3.isoParse(ts[i].dateTime);
+    var data = {
+        "type": "scatter",
+        "x": ts.map(function (i) {return d3.isoParse(i.dateTime)}),
+        "y": ts.map(function (i) {return i.value}),
     };
-    var data = {"type": "scatter", "x": x, "y": y};
     var layout = {
         "title": timeSeries.sourceInfo.siteName,
         "yaxis": {"title": timeSeries.variable.variableName},
@@ -253,7 +250,7 @@ function processTimeSeries(timeSeries) {
 function callback(response) {
     var timeSeries = response.value.timeSeries[0];
     var figure = processTimeSeries(timeSeries);
-    Plotly.plot("figure-1", figure.data, figure.layout)
+    Plotly.plot("fig-1", figure.data, figure.layout)
 };
 var url = "http://waterservices.usgs.gov/nwis/iv/?format=json&sites=01646500&period=P7D&parameterCd=00060";
 d3.json(url, callback);
@@ -283,24 +280,20 @@ Second, make the following changes to `json-viz.js`:
 ~~~
 function callback(response) {
     var timeSeries = response.value.timeSeries;
-    var n = timeSeries.length;
-    var figure = Array(n);
-    for (let i = 0; i < n; i++) {
-        figure[i] = processTimeSeries(timeSeries[i])
-    };
+    var fig = timeSeries.map(processTimeSeries);
     var select = document.getElementById("menu");
-    for (let i = 0; i < n; i++) {
-        var option = document.createElement('option');
-        option.text = figure[i].layout.title;
+    for (let i = 0; i < timeSeries.length; i++) {
+        var option = document.createElement("option");
+        option.text = fig[i].layout.title;
         option.value = i;
         select.appendChild(option)
     };
     select.addEventListener(
-        'change',
-        function() {Plotly.newPlot("figure-1", figure[select.value].data, figure[select.value].layout);},
+        "change",
+        function() {Plotly.newPlot("fig-1", fig[select.value].data, fig[select.value].layout);},
         false
     );
-    select.dispatchEvent(new Event('change'));
+    select.dispatchEvent(new Event("change"));
 };
 var url = "http://waterservices.usgs.gov/nwis/iv/?format=json&stateCd=md&period=P7D&parameterCd=00060&siteStatus=active";
 ~~~
