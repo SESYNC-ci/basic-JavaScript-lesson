@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Index</title>
+  <meta name="description" content="">
+
+  <style type="text/css">
+
+   body {
+  background-color: #fff;
+  padding:50px;
+  font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color:#727272;
+  font-weight:400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color:#222;
+  margin:0 0 20px;
+}
+
+p, ul, ol, table, pre, dl {
+  margin:0 0 20px;
+}
+
+h1, h2, h3 {
+  line-height:1.1;
+}
+
+h1 {
+  font-size:28px;
+}
+
+h2 {
+  color:#393939;
+}
+
+h3, h4, h5, h6 {
+  color:#494949;
+}
+
+a {
+  color:#39c;
+  text-decoration:none;
+}
+
+a:hover {
+  color:#069;
+}
+
+a small {
+  font-size:11px;
+  color:#777;
+  margin-top:-0.3em;
+  display:block;
+}
+
+a:hover small {
+  color:#777;
+}
+
+.wrapper {
+  width:860px;
+  margin:0 auto;
+}
+
+blockquote {
+  border-left:1px solid #e5e5e5;
+  margin:0;
+  padding:0 0 0 20px;
+  font-style:italic;
+}
+
+code, pre {
+  font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+  color:#333;
+  font-size:12px;
+}
+
+pre {
+  padding:8px 15px;
+  background: #f8f8f8;
+  border-radius:5px;
+  border:1px solid #e5e5e5;
+  overflow-x: auto;
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+
+th, td {
+  text-align:left;
+  padding:5px 10px;
+  border-bottom:1px solid #e5e5e5;
+}
+
+dt {
+  color:#444;
+  font-weight:700;
+}
+
+th {
+  color:#444;
+}
+
+img {
+  max-width:100%;
+}
+
+header {
+  width:270px;
+  float:left;
+  position:fixed;
+  -webkit-font-smoothing:subpixel-antialiased;
+}
+
+header ul {
+  list-style:none;
+  height:40px;
+  padding:0;
+  background: #f4f4f4;
+  border-radius:5px;
+  border:1px solid #e0e0e0;
+  width:270px;
+}
+
+header li {
+  width:89px;
+  float:left;
+  border-right:1px solid #e0e0e0;
+  height:40px;
+}
+
+header li:first-child a {
+  border-radius:5px 0 0 5px;
+}
+
+header li:last-child a {
+  border-radius:0 5px 5px 0;
+}
+
+header ul a {
+  line-height:1;
+  font-size:11px;
+  color:#999;
+  display:block;
+  text-align:center;
+  padding-top:6px;
+  height:34px;
+}
+
+header ul a:hover {
+  color:#999;
+}
+
+header ul a:active {
+  background-color:#f0f0f0;
+}
+
+strong {
+  color:#222;
+  font-weight:700;
+}
+
+header ul li + li + li {
+  border-right:none;
+  width:89px;
+}
+
+header ul a strong {
+  font-size:14px;
+  display:block;
+  color:#222;
+}
+
+section {
+  width:500px;
+  float:right;
+  padding-bottom:50px;
+}
+
+small {
+  font-size:11px;
+}
+
+hr {
+  border:0;
+  background:#e5e5e5;
+  height:1px;
+  margin:0 0 20px;
+}
+
+footer {
+  width:270px;
+  float:left;
+  position:fixed;
+  bottom:50px;
+  -webkit-font-smoothing:subpixel-antialiased;
+}
+
+@media print, screen and (max-width: 960px) {
+
+  div.wrapper {
+    width:auto;
+    margin:0;
+  }
+
+  header, section, footer {
+    float:none;
+    position:static;
+    width:auto;
+  }
+
+  header {
+    padding-right:320px;
+  }
+
+  section {
+    border:1px solid #e5e5e5;
+    border-width:1px 0;
+    padding:20px 0;
+    margin:0 0 20px;
+  }
+
+  header a small {
+    display:inline;
+  }
+
+  header ul {
+    position:absolute;
+    right:50px;
+    top:52px;
+  }
+}
+
+@media print, screen and (max-width: 720px) {
+  body {
+    word-wrap:break-word;
+  }
+
+  header {
+    padding:0;
+  }
+
+  header ul, header p.view {
+    position:static;
+  }
+
+  pre, code {
+    word-wrap:normal;
+  }
+}
+
+@media print, screen and (max-width: 480px) {
+  body {
+    padding:15px;
+  }
+
+  header ul {
+    width:99%;
+  }
+
+  header li, header ul li + li + li {
+    width:33%;
+  }
+}
+
+@media print {
+  body {
+    padding:0.4in;
+    font-size:12pt;
+    color:#444;
+  }
+}
+
+   
+   .text-document pre {
+       background-color: #000000;
+   }
+
+   .text-document code {
+       color: #FFFFFF;
+   }
+
+   div.text-document::before {
+       content: attr(title);
+       font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+       font-size: 14px;
+       color: #000000;
+       background: #C0C0C0;
+       padding:8px 15px;
+       border-radius:5px 5px 0px 0px;
+       border:1px solid #e5e5e5;
+       display: block;
+   }
+   
+   .text-document pre {
+       border-radius: 0px 0px 5px 5px;
+   }
+
+
+   .input pre {
+       background-color: #EBECE4;
+   }
+   
+   .output pre {
+       background-color: #ECECC7;
+   }
+   
+  </style>
+</head>
+
+
+  <body>
+
+    <div class="page-content">
+      <div class="wrapper">
+        <!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Index</title>
+  <meta name="description" content="One Hour with JavaScript">
+
+  <style type="text/css">
+
+   body {
+  background-color: #fff;
+  padding:50px;
+  font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color:#727272;
+  font-weight:400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color:#222;
+  margin:0 0 20px;
+}
+
+p, ul, ol, table, pre, dl {
+  margin:0 0 20px;
+}
+
+h1, h2, h3 {
+  line-height:1.1;
+}
+
+h1 {
+  font-size:28px;
+}
+
+h2 {
+  color:#393939;
+}
+
+h3, h4, h5, h6 {
+  color:#494949;
+}
+
+a {
+  color:#39c;
+  text-decoration:none;
+}
+
+a:hover {
+  color:#069;
+}
+
+a small {
+  font-size:11px;
+  color:#777;
+  margin-top:-0.3em;
+  display:block;
+}
+
+a:hover small {
+  color:#777;
+}
+
+.wrapper {
+  width:860px;
+  margin:0 auto;
+}
+
+blockquote {
+  border-left:1px solid #e5e5e5;
+  margin:0;
+  padding:0 0 0 20px;
+  font-style:italic;
+}
+
+code, pre {
+  font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+  color:#333;
+  font-size:12px;
+}
+
+pre {
+  padding:8px 15px;
+  background: #f8f8f8;
+  border-radius:5px;
+  border:1px solid #e5e5e5;
+  overflow-x: auto;
+}
+
+table {
+  width:100%;
+  border-collapse:collapse;
+}
+
+th, td {
+  text-align:left;
+  padding:5px 10px;
+  border-bottom:1px solid #e5e5e5;
+}
+
+dt {
+  color:#444;
+  font-weight:700;
+}
+
+th {
+  color:#444;
+}
+
+img {
+  max-width:100%;
+}
+
+header {
+  width:270px;
+  float:left;
+  position:fixed;
+  -webkit-font-smoothing:subpixel-antialiased;
+}
+
+header ul {
+  list-style:none;
+  height:40px;
+  padding:0;
+  background: #f4f4f4;
+  border-radius:5px;
+  border:1px solid #e0e0e0;
+  width:270px;
+}
+
+header li {
+  width:89px;
+  float:left;
+  border-right:1px solid #e0e0e0;
+  height:40px;
+}
+
+header li:first-child a {
+  border-radius:5px 0 0 5px;
+}
+
+header li:last-child a {
+  border-radius:0 5px 5px 0;
+}
+
+header ul a {
+  line-height:1;
+  font-size:11px;
+  color:#999;
+  display:block;
+  text-align:center;
+  padding-top:6px;
+  height:34px;
+}
+
+header ul a:hover {
+  color:#999;
+}
+
+header ul a:active {
+  background-color:#f0f0f0;
+}
+
+strong {
+  color:#222;
+  font-weight:700;
+}
+
+header ul li + li + li {
+  border-right:none;
+  width:89px;
+}
+
+header ul a strong {
+  font-size:14px;
+  display:block;
+  color:#222;
+}
+
+section {
+  width:500px;
+  float:right;
+  padding-bottom:50px;
+}
+
+small {
+  font-size:11px;
+}
+
+hr {
+  border:0;
+  background:#e5e5e5;
+  height:1px;
+  margin:0 0 20px;
+}
+
+footer {
+  width:270px;
+  float:left;
+  position:fixed;
+  bottom:50px;
+  -webkit-font-smoothing:subpixel-antialiased;
+}
+
+@media print, screen and (max-width: 960px) {
+
+  div.wrapper {
+    width:auto;
+    margin:0;
+  }
+
+  header, section, footer {
+    float:none;
+    position:static;
+    width:auto;
+  }
+
+  header {
+    padding-right:320px;
+  }
+
+  section {
+    border:1px solid #e5e5e5;
+    border-width:1px 0;
+    padding:20px 0;
+    margin:0 0 20px;
+  }
+
+  header a small {
+    display:inline;
+  }
+
+  header ul {
+    position:absolute;
+    right:50px;
+    top:52px;
+  }
+}
+
+@media print, screen and (max-width: 720px) {
+  body {
+    word-wrap:break-word;
+  }
+
+  header {
+    padding:0;
+  }
+
+  header ul, header p.view {
+    position:static;
+  }
+
+  pre, code {
+    word-wrap:normal;
+  }
+}
+
+@media print, screen and (max-width: 480px) {
+  body {
+    padding:15px;
+  }
+
+  header ul {
+    width:99%;
+  }
+
+  header li, header ul li + li + li {
+    width:33%;
+  }
+}
+
+@media print {
+  body {
+    padding:0.4in;
+    font-size:12pt;
+    color:#444;
+  }
+}
+
+   
+   .text-document pre {
+       background-color: #000000;
+   }
+
+   .text-document code {
+       color: #FFFFFF;
+   }
+
+   div.text-document::before {
+       content: attr(title);
+       font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, Consolas, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+       font-size: 14px;
+       color: #000000;
+       background: #C0C0C0;
+       padding:8px 15px;
+       border-radius:5px 5px 0px 0px;
+       border:1px solid #e5e5e5;
+       display: block;
+   }
+   
+   .text-document pre {
+       border-radius: 0px 0px 5px 5px;
+   }
+
+
+   .input pre {
+       background-color: #EBECE4;
+   }
+   
+   .output pre {
+       background-color: #ECECC7;
+   }
+   
+  </style>
+</head>
+
+
+  <body>
+
+    <div class="page-content">
+      <div class="wrapper">
+        <h1 id="one-hour-with-javascript">One Hour with JavaScript</h1>
+
+<p>Instructor: Ian Carroll</p>
+
+<p>What JavaScript is:</p>
+
+<ul>
+  <li>The <em>de facto</em> scripting language for the world wide web</li>
+  <li>Object oriented, but without classes (no, really!)</li>
+  <li>Reminiscent of Java (duh!) and C syntax</li>
+  <li>Dynamically typed (phew!)</li>
+</ul>
+
+<h2 id="hello-world">Hello, World!</h2>
+
+<p>JavaScript interpreters are built into modern browsers, so there is nothing to install if you already have Chrome, IE, Safari, Firefox, etc. All you need to do is create a document the browser will recognize, i.e. create a webpage.</p>
+
+<div class="text-document highlighter-rouge" title="index.html"><pre class="highlight"><code><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;script&gt;</span>
+      <span class="kd">var</span> <span class="nx">hello</span> <span class="o">=</span> <span class="s2">"Hello, World!"</span><span class="p">;</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">hello</span><span class="p">);</span>
+    <span class="nt">&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<p>Point your browser to <code class="highlighter-rouge">file:///%sandbox%/index.html</code>. Find where the JavaScript “console” resides by looking for “Developer” views on your browser.</p>
+
+<h2 id="modularization">Modularization</h2>
+
+<p>Modularization is the process of breaking a project into components (the modules), each one encapsulating a <em>mostly</em> indepdent process. Communication between modules depends, more or less, on their capacity for taking input and returning output.</p>
+
+<p>Our first modularization step is to get the JavaScript out of the HTML!</p>
+
+<div class="text-document highlighter-rouge" title="hello-world.js"><pre class="highlight"><code>var hello = "Hello, World!";
+console.log(hello);
+</code></pre>
+</div>
+
+<div class="text-document highlighter-rouge" title="index.html"><pre class="highlight"><code><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"hello-world.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<h2 id="data-types">Data Types</h2>
+
+<p>Although the type of data referenced by a variable is determined automatically (and can change), the type must still be recognizable.
+There are just a few data types in JavaScript – they’re all listed below.
+The vast majority of variables you work with will be of an “object” data type, which will consist of other objects as well as any of the remaining six “primitive” data types.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>number</td>
+      <td><code class="highlighter-rouge">42</code>, <code class="highlighter-rouge">0.4</code>, <code class="highlighter-rouge">NaN</code></td>
+    </tr>
+    <tr>
+      <td>string</td>
+      <td><code class="highlighter-rouge">"Hello, World!"</code></td>
+    </tr>
+    <tr>
+      <td>boolean</td>
+      <td><code class="highlighter-rouge">true</code>, <code class="highlighter-rouge">false</code></td>
+    </tr>
+    <tr>
+      <td>object</td>
+      <td>Constructors: <code class="highlighter-rouge">Array()</code>, <code class="highlighter-rouge">Date()</code>, <code class="highlighter-rouge">Function()</code></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td>Literals: <code class="highlighter-rouge"><span class="p">{</span><span class="err">key:</span><span class="w"> </span><span class="err">value,</span><span class="w"> </span><span class="err">...</span><span class="w"> </span><span class="p">}</span></code></td>
+    </tr>
+    <tr>
+      <td>undefined</td>
+      <td>the value of un-initialized variables</td>
+    </tr>
+    <tr>
+      <td>null</td>
+      <td>deliberate non-value</td>
+    </tr>
+    <tr>
+      <td>symbol</td>
+      <td>save this for your second hour with JS …</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Primitive data types behave quite naturally: you could guess many actions that are permitted on them. Try the following in your browser’s JavaScript console.</p>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>console.log(1 + 1 == 2)
+</code></pre>
+</div>
+
+<div class="output highlighter-rouge"><pre class="highlight"><code>true
+</code></pre>
+</div>
+
+<h2 id="keywords">Keywords</h2>
+
+<p>Certain keywords are reserved, which means they cannot be the name of a variable. The table below shows some of the most important keywords.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Keyword</th>
+      <th>Explanation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="highlighter-rouge">var</code></td>
+      <td>declare a new variable</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">let</code></td>
+      <td>like <code class="highlighter-rouge">var</code>, but with a restricted scope</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">function</code>, <code class="highlighter-rouge">return</code></td>
+      <td>declare a variable that accepts arguments, and optionally returns a value</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">new</code></td>
+      <td>create a new object</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">this</code></td>
+      <td>the object that “owns” a statement</td>
+    </tr>
+    <tr>
+      <td><code class="highlighter-rouge">for</code>, <code class="highlighter-rouge">which</code>, etc.</td>
+      <td>begin flow control statements</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="text-document highlighter-rouge" title="hello-world.js"><pre class="highlight"><code>var hello = "Hello, World!";   // Declare a variable and initialize it to a string
+function print(greeting) {     // Declare a function and initialize it to {...}
+  console.log(greeting)
+};
+print(hello);
+</code></pre>
+</div>
+
+<h2 id="properties-and-the-new-keyword">Properties and the <code class="highlighter-rouge">new</code> Keyword</h2>
+
+<p>An object has it’s own properties that are accessed with a <code class="highlighter-rouge">.</code> between the object and property names. We’ve seen one so far – the <code class="highlighter-rouge">log</code> property belonging to <code class="highlighter-rouge">console</code>. When creating an object from an object literal, i.e. using <code class="highlighter-rouge"><span class="p">{</span><span class="err">key:</span><span class="w"> </span><span class="err">value,</span><span class="w"> </span><span class="err">...</span><span class="p">}</span></code>, each key becomes the name of an object’s property.</p>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>var dog = {"name": "Rex", "greeting": "Bark!"};
+console.log(dog.name);
+</code></pre>
+</div>
+
+<p>The <code class="highlighter-rouge">new</code> keyword works together with constructors, which are functions that may use the keyword <code class="highlighter-rouge">this</code> to assign properties to the object being constructed. It is convention to capitalize the name of a constructor.</p>
+
+<div class="text-document highlighter-rouge" title="rex.js"><pre class="highlight"><code>function Dog() {
+    this.name = "Rex";             // "this" refers to a TBD object
+    this.greeting = "Bark!";
+    this.speak = function() {      // Yes, there ARE two ways to use the function keyword!
+        console.log(this.greeting) // See the difference?
+    };
+};
+var rex = new Dog();               // Instantiate an object of "class" Dog
+rex.speak();                       // Good dog, Rex!
+</code></pre>
+</div>
+
+<p><strong>Exercise:</strong> Modify your <code class="highlighter-rouge">index.html</code> file to use this script instead of <code class="highlighter-rouge">hello-world.js</code>.</p>
+
+<h2 id="flow-control--scope">Flow Control &amp; Scope</h2>
+
+<p>Flow control in JavaScript uses the same syntax as C (including the <code class="highlighter-rouge">switch</code> statement, but that’s for another time). The <code class="highlighter-rouge">for</code> keyword indicates a code block that will be repeated until the second statement of the immediately following <code class="highlighter-rouge">(...; ...; ...)</code> phrase evaluates to <code class="highlighter-rouge">true</code>.</p>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>var fibonacci = [0, 1];           // Wait, what? This is just a shortcut for the Array() constructor.
+
+for (var i = 1; i &lt; 10; i++) {
+    console.log("Index " + i + ": " + fibonacci[i]);
+    fibonacci[i + 1] = fibonacci[i];
+};
+</code></pre>
+</div>
+
+<p><strong>Exercise:</strong> Wait a minute, that’s not right! Modify the for loop to get the Fibonacci sequence. It should go like this: 1, 1, 2, 3, 5, 8, 13, 21, …</p>
+
+<p><strong>Exercise:</strong> The keyword <code class="highlighter-rouge">let</code> declares a variable with block, statement or expression level scope. Try replacing <code class="highlighter-rouge">var i</code> with <code class="highlighter-rouge">let i</code> and then logging the value of <code class="highlighter-rouge">i</code> after the <code class="highlighter-rouge">for</code> loop has run.</p>
+
+<h2 id="document-object-model-dom">Document Object Model (DOM)</h2>
+
+<p>You get a lot for free with JavaScript running in a browser. One freebie is the <code class="highlighter-rouge">document</code> object which allows your script to control the webpage using the DOM, an abstration (or model) of a webpage.</p>
+
+<div class="text-document highlighter-rouge" title="hello-web.js"><pre class="highlight"><code>var heading = document.createElement('h1');
+heading.textContent = "Hello, World Wide Web!";
+document.body.appendChild(heading);
+</code></pre>
+</div>
+
+<p>The script doesn’t change the source code for the webpage – the HTML on file in <code class="highlighter-rouge">index.html</code> – but it modifies the page elements by re-writing the browser’s working version of the DOM that was initially described in the HTML file.</p>
+
+<h2 id="interactive-vizualizations-with-plotlyjs">Interactive Vizualizations with Plotly.js</h2>
+
+<p>Let’s jump way ahead of ourselves. D3.js is a JavaScript library that draws scalable vector graphics (SVG), which are compositions of simple shapes or geometries, on a webpage. SVG graphics look great on a webpage and have the added benefit of being easilly manipulated – they’re part of the DOM! Each shape is an element, directly accessible from the <code class="highlighter-rouge">document</code> object. Plotly.js is a JavaScript library, built on top of d3.js, that adds high-level charting capabilities.</p>
+
+<p>Remember, JavaScript is meant to be interpreted online, so you can “import” any library distributed online by pointing the script <code class="highlighter-rouge">src</code> attribute to an appropriate URL.</p>
+
+<div class="text-document highlighter-rouge" title="index.html"><pre class="highlight"><code><span class="cp">&lt;!doctype html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"fig-1"</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://cdn.plot.ly/plotly-latest.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://d3js.org/d3.v4.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"viz.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<p>Aside from importing Plotly.js and d3.js, the webpage now includes a <code class="highlighter-rouge">div</code> element identified as <code class="highlighter-rouge">fig-1</code>. A <code class="highlighter-rouge">div</code> element is a division, or section, of an HTML document. The <code class="highlighter-rouge">id</code> attribute is special in that its value is assumed to be unique within all elements of a webpage. Initially, the <code class="highlighter-rouge">div</code> has no content; the following script will add all the SVG elements to create the figure.</p>
+
+<div class="text-document highlighter-rouge" title="viz.js"><pre class="highlight"><code>data = [{
+    x: [1, 2, 3, 4, 5, 6, 7],
+    y: [1, 1, 2, 3, 5, 8, 13],
+}];
+layout = {
+    title: "Fibonacci Sequence",
+};
+
+Plotly.plot("fig-1", data, layout)
+</code></pre>
+</div>
+
+<p><strong>Exercise:</strong> Once you have a plot visible in your webpage, find the JavaScript console under the “Developer” view again and examine the page elements (or, on most browsers, simply right-click the figure and choose to inspect the element). What class has been assigned to the original <code class="highlighter-rouge">div</code> identified by <code class="highlighter-rouge">figure-1</code>. Can you find a new <code class="highlighter-rouge">div</code> that Plotly.js added to the DOM?</p>
+
+<p>A data jedi wouldn’t write data <em>directly into the script</em> as we just did. Data should be stored seperately, wich its location indicated by a URL. Among the general purpose data tools in the d3.js library are functions for reading many data formats. To take full advantage of accessing data <em>anywhere</em> a URL might point, our webpage needs to be served (i.e. the browser needs to access it using the Hyper-Text Transfer Potocol, or HTTP). A handy Python module is useful for testing:</p>
+
+<div class="input highlighter-rouge"><pre class="highlight"><code>cd %sandbox%
+python -m SimpleHTTPServer 8000
+</code></pre>
+</div>
+
+<p>Now point a browser to <code class="highlighter-rouge">http://localhost:8000</code> to verify the webserver is working.</p>
+
+<p>We are going to plot real-time streamflow data aquired from a USGS web service. There are a few concepts to understand before we create the plot:</p>
+
+<ul>
+  <li>Web service: a server that presents data in response to parameters supplied by the client in a HTTP request</li>
+  <li>JavaScript Object Notation (JSON): a data format matching the “key: value” pattern of object literals</li>
+  <li>callback function: packaged-up instructions for handling data once it has been aquired by an asynchronous process</li>
+</ul>
+
+<div class="text-document highlighter-rouge" title="json.js"><pre class="highlight"><code>function callback(response) {
+    var pre = document.createElement("pre");
+    pre.textContent = JSON.stringify(response, null, 4);
+    document.body.appendChild(pre);
+};
+
+var url = "http://waterservices.usgs.gov/nwis/iv/?format=json&amp;sites=01646500&amp;period=P7D&amp;parameterCd=00060";
+d3.json(url, callback)
+</code></pre>
+</div>
+
+<p>The parameters embedded in the URL specify a data format, monitoring site, time period and observation variable. The callback function only evaluates after the function <code class="highlighter-rouge">d3.json</code> receives a response from <code class="highlighter-rouge">waterservices.usgs.gov</code>. This callback just prints a string representation of the JSON object retrieved.</p>
+
+<p>To plot the data, we need to process the JSON object into <code class="highlighter-rouge">x</code> and <code class="highlighter-rouge">y</code> data arrays before calling <code class="highlighter-rouge">Plotly.plot</code>.</p>
+
+<div class="text-document highlighter-rouge" title="json-viz.js"><pre class="highlight"><code>function processTimeSeries(timeSeries) {
+    var ts = timeSeries.values[0].value;
+    var data = {
+        "type": "scatter",
+        "x": ts.map(function (i) {return d3.isoParse(i.dateTime)}),
+        "y": ts.map(function (i) {return i.value}),
+    };
+    var layout = {
+        "title": timeSeries.sourceInfo.siteName,
+        "yaxis": {"title": timeSeries.variable.variableName},
+    };
+    return {
+        "data": [data],
+        "layout": layout,
+    }
+};
+function callback(response) {
+    var timeSeries = response.value.timeSeries[0];
+    var figure = processTimeSeries(timeSeries);
+    Plotly.plot("fig-1", figure.data, figure.layout)
+};
+var url = "http://waterservices.usgs.gov/nwis/iv/?format=json&amp;sites=01646500&amp;period=P7D&amp;parameterCd=00060";
+d3.json(url, callback);
+</code></pre>
+</div>
+
+<p>A primary reason to learn JavaScript is to produce <em>interactive</em> vizualizations on the web, so let’s leap forward once more. First, add a “select” form to the webpage.</p>
+
+<div class="text-document highlighter-rouge" title="index.html"><pre class="highlight"><code>...
+&lt;body&gt;
+  &lt;div&gt;
+    Station: &lt;select id="menu"&gt;&lt;/select&gt;
+  &lt;/div&gt;
+...
+</code></pre>
+</div>
+
+<p>Second, make the following changes to <code class="highlighter-rouge">json-viz.js</code>:</p>
+
+<ul>
+  <li>Re-write the callback function so it will
+    <ul>
+      <li>parse multiple time-series</li>
+      <li>add <code class="highlighter-rouge">option</code> elements to the <code class="highlighter-rouge">select</code> element in the DOM</li>
+      <li>attach a “listener” to the select form that responds to changes</li>
+    </ul>
+  </li>
+  <li>Update the URL to obtain all active stations in the state of Maryland</li>
+</ul>
+
+<div class="text-document highlighter-rouge" title="json-viz.js"><pre class="highlight"><code>function callback(response) {
+    var timeSeries = response.value.timeSeries;
+    var fig = timeSeries.map(processTimeSeries);
+    var select = document.getElementById("menu");
+    for (let i = 0; i &lt; timeSeries.length; i++) {
+        var option = document.createElement("option");
+        option.text = fig[i].layout.title;
+        option.value = i;
+        select.appendChild(option)
+    };
+    select.addEventListener(
+        "change",
+        function() {Plotly.newPlot("fig-1", fig[select.value].data, fig[select.value].layout);},
+        false
+    );
+    select.dispatchEvent(new Event("change"));
+};
+var url = "http://waterservices.usgs.gov/nwis/iv/?format=json&amp;stateCd=md&amp;period=P7D&amp;parameterCd=00060&amp;siteStatus=active";
+</code></pre>
+</div>
+
+<p><strong>Exercise:</strong> Study the <a href="http://waterservices.usgs.gov/rest/IV-Test-Tool.html">USGS Water Serivces tool</a> and plot data from a different location or of a different type.</p>
+
+      </div>
+    </div>
+
+  </body>
+
+</html>
+
+      </div>
+    </div>
+
+  </body>
+
+</html>
