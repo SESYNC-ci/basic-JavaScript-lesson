@@ -1,15 +1,17 @@
 # Site
 
-title:
+title: One Hour with JavaScript
 handouts:
-tag:
-lesson:
-instructor:
+tag: v0.0
+lesson: 0
+instructor: Ian Carroll
 authors:
+ - Ian Carroll
 
 # Slides
 
 slide_sorter:
+ - index
 
 #####################################
 # Only modify content above or risk #
