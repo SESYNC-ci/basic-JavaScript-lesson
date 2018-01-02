@@ -1,11 +1,7 @@
 ---
 ---
 
-# One Hour with JavaScript
-
-Instructor: Ian Carroll
-
-What JavaScript is:
+## What is JavaScript?
 
 - The *de facto* scripting language for the world wide web
 - Object oriented, but without classes (no, really!) 
