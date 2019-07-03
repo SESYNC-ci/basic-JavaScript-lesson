@@ -1,71 +1,133 @@
-# look up slides and lesson number in Jekyll _config.yml
-SLIDES := $(shell ruby -e "require 'yaml';puts YAML.load_file('docs/_config.yml')['slide_sorter']")
-LESSON := $(shell ruby -e "require 'yaml';puts YAML.load_file('docs/_config.yml')['lesson']")
+# # Make Settings
 
-# list available Markdown, RMarkdown and Pweave slides
-SLIDES_MD := $(shell find . -path "./docs/_slides_md/*.md")
-SLIDES_RMD := $(shell find . -path "./docs/_slides_Rmd/*.Rmd")
-SLIDES_PMD := $(shell find . -path "./docs/_slides_pmd/*.pmd")
+.DEFAULT_GOAL := preview
 
-# look up auxillary files trainees will require in Jekyll _config.yml
-HANDOUTS := $(shell ruby -e "require 'yaml';puts YAML.load_file('docs/_config.yml')['handouts']")
-WORKSHEETS := $(addprefix ../../, $(patsubst worksheet%,worksheet-$(LESSON)%,$(filter-out data/%, $(HANDOUTS))))
-DATA := $(addprefix ../,$(filter data/%,$(HANDOUTS)))
+.PHONY: release archive preview course slides upstream
 
-# do not run rules in parallel; because
-# - bin/build_slides.R runs over all .Rmd slides
-# - rsync -r only needs to run once
+# do not run rules in parallel because bin/build_rmd.R 
+# (bin/build_ipynb.py) runs over all .Rmd (.ipynb) slides
 .NOTPARALLEL:
-.DEFAULT_GOAL: slides
-.PHONY: course lesson slides archive
 
-# target to build .md slides
-slides: $(SLIDES:%=docs/_slides/%.md) | .git/refs/remotes/upstream
+# use user library for bundle install
+export GEM_HOME = $(HOME)/.gem
 
-# target to ensure upstream remote is lesson-style
-.git/refs/remotes/upstream:
-	git remote add upstream "git@github.com:sesync-ci/lesson-style.git"
-	git fetch upstream
-	git checkout -b upstream remotes/upstream/master
-	git checkout master
+# execute recipes with bash shell for pushd/popd
+SHELL := /bin/bash
 
-# cannot use a pattern as the next three targets, because
-# the targets are only a subset of docs/_slides/%.md
+# use user library for bundle install
+export GEM_HOME = $(HOME)/.gem
 
-$(subst _md,,$(SLIDES_MD)): docs/_slides/%: docs/_slides_md/%
-	cp $< $@
+# execute recipes with bash shell for pushd/popd
+SHELL := /bin/bash
 
-$(subst _Rmd,,$(SLIDES_RMD:.Rmd=.md)): $(SLIDES_RMD)
-	@bin/build_slides.R
+# override RStudio display setting
+unexport DISPLAY
 
-$(subst _pmd,,$(SLIDES_PMD:.pmd=.md)): $(SLIDES_PMD)
-	@bin/build_slides.py
+# specify the owner of the upstream and current repo
+OWNER := SESYNC-ci
 
-# target to update lesson repo on GitHub
-lesson: slides
+# # Read Slide/File Names
+
+# look up lesson number and slides in Jekyll _config.yml
+LESSON := $(shell ruby -e "require 'yaml';puts YAML.load_file('docs/_data/lesson.yml')['lesson']")
+SORTER := $(shell ruby -e "require 'yaml';puts YAML.load_file('docs/_data/lesson.yml')['sorter']")
+SLIDES := $(SORTER:%=docs/_slides/%.md)
+
+# list available Markdown, RMarkdown and Jupyter Notebook slides
+SLIDES_MD := $(shell find slides/ -name "*.md" -exec basename {} \;)
+SLIDES_RMD := $(shell find slides/ -name "*.Rmd" -exec basename {} \;)
+SLIDES_IPYNB := $(shell find slides/ -name "*.ipynb" -exec basename {} \;)
+
+# look up handouts (worksheets and data) for trainees in _data/lesson.yml
+HANDOUTS := $(shell ruby -e "require 'yaml';puts YAML.load_file('docs/_data/lesson.yml')['handouts']")
+
+# look up files whose modification require Jekyll build (erring conservatively)
+SITE := $(shell find docs/ ! -path "docs/_site*")
+
+# # Merge with Upstream Repo "lesson-style"
+
+# target to merge changes
+upstream: | .git/refs/remotes/upstream
 	git pull
-	if [ -n "$$(git status -s)" ]; then git commit -am 'commit by make'; fi
 	git fetch upstream master:upstream
 	git merge --no-edit upstream
 	git push
+# target to create upstream branch
+.git/refs/remotes/upstream:
+	git remote add -f upstream "git@github.com:$(OWNER)/lesson-style.git"
+	git branch -t upstream upstream/master
 
-# make target "course" copies lesson handouts to the handouts repository
-# adding a lesson number to any "worksheet"
-# make course is called within the handouts Makefile, assumed to be at ../../
-course: lesson $(WORKSHEETS) $(DATA)
-# FIXME use http://sesync.us/lq4iu for link sharing, zip ?
+# # Build Slides for Jekyll Site
 
-$(WORKSHEETS): ../../worksheet-$(LESSON)%: worksheet%
+# target to identify slide files
+slides: $(SLIDES)
+
+# targets to trigger the order-only prerequisite just once
+$(SLIDES): | docs/_slides
+docs/_slides:
+	mkdir -p docs/_slides
+
+## cannot use a pattern as the next three targets, because
+## the targets are only a subset of docs/_slides/%.md and
+## they have different recipes
+$(addprefix docs/_slides/,$(SLIDES_MD)): docs/_slides/%: slides/%
+	cp $< $@
+$(addprefix docs/_slides/,$(SLIDES_RMD:.Rmd=.md)): docs/_slides/%.md: bin/build_rmd.R slides/%.Rmd 
+	@$<
+$(addprefix docs/_slides/,$(SLIDES_PMD:.ipynb=.md)): docs/_slides/%.md: bin/build_ipynb.py /slides/%.ipynb 
+	@$<
+
+# # Build the Jekyll Site locally
+
+# target to build local jekyll site for RStudio Server preview
+preview: slides | docs/_site
+docs/_site: $(SITE) | docs/Gemfile.lock
+	pushd docs && bundle exec jekyll build --baseurl=$(RSTUDIO_PROXY) && popd
+	touch docs/_site
+docs/Gemfile.lock:
+	pushd docs && bundle install && popd
+
+# # Copy Handouts and Data for a Course
+# 
+# make target "course" is called within the handouts Makefile,
+# whose own recipes put it at ../../Makefile
+# 
+# files matching "worksheet*" will be numbered by lesson number
+
+# target to update style and identify course handout files
+course: upstream $(addprefix ../../handouts/,$(HANDOUTS:worksheet%=worksheet-$(LESSON)%))
+
+# target to copy worksheets to the ../../handouts/
+# directory while adding lesson numbers
+../../handouts/worksheet-$(LESSON)%: worksheet%
 	cp $< $@
 
-$(DATA): ../%: %
-	rsync -au $< $@
+# target to copy remaining handouts to ../../handouts/
+../../handouts/%: %
+	mkdir -p $(dir $@)
+	cp -r $< $@
 
-# must call the archive target with a
-# command line parameter for DATE
-archive:
-	@curl "https://sesync-ci.github.io/$${PWD##*/}/course/archive.html" -o docs/_posts/$(DATE)-index.html
+# # Archive
+# 
+# call the archive target with a command line parameter for DATE
 
-# create binary for GitHub release
+# target to archive a lesson
+archive: | docs/_archive
+	cp docs/_views/course.md docs/_archive/$(DATE)-index.md
+	pushd docs && bundle exec jekyll build --config _config.yml,_archive.yml && popd
+	echo -e "---\n---\n" > docs/_archive/$(DATE)-index.html
+	cat docs/_site/$(subst -,/,$(DATE))/index.html >> docs/_archive/$(DATE)-index.html
+	rm docs/_archive/$(DATE)-index.md
+docs/_archive:
+	mkdir docs/_archive
+
+# target to create binary for GitHub release
 release:
-	ln *.Rproj handouts.Rproj && zip -FSr handouts handouts.Rproj $(HANDOUTS) && rm handouts.Rproj
+	mkdir handouts
+	re=".R(|md)( |$$)"; \
+	if [ -f *.Rproj ] && [[ "$(filter worksheet%,$(HANDOUTS))" =~ $$re ]]; \
+	    then ln *.Rproj handouts/handouts.Rproj; \
+	fi
+	ln -s $(addprefix ../,$(HANDOUTS)) handouts
+	zip -FSr handouts.zip handouts
+	rm -rf handouts

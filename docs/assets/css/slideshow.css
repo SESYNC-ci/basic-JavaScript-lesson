@@ -1,0 +1,81 @@
+img + br + em {
+    font-size: 0.5em !Important;
+}
+
+.reveal section img.nobox {
+  border: none;
+  box-shadow: none;
+}
+
+.text-document::before, .input::before {
+    top: 3.4px;
+}
+
+.reveal table {
+    font-size: 90%;
+}
+
+.reveal pre {
+  font-size: 1em;
+  width: 100%;
+  box-shadow: none;
+  border: 1px solid #AAA;
+}
+
+.reveal code {
+    padding: 0 0.2em;
+}
+
+.reveal pre code {
+    max-height: unset;
+}
+.reveal .output {
+    display: none;
+}
+
+.input + p.captioned, .text-document + p.captioned {
+    display: none;
+}
+
+.reveal section p {
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+.reveal .slides section {
+    text-align: left;
+}
+
+.reveal .slides section.right-third {
+    width: 60%;
+    margin-left: 20vw;
+}
+
+.reveal .slides .right-third h2 {
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+.text-document pre, .input pre {
+    margin: 2px auto;
+}
+
+.reveal {
+    font-size: 32px; /* for 1600 x 900 resolution */
+}
+
+p.on-white {
+    background-color: rgba(255,255,255,0.75);
+    border: 2px solid rgba(255,255,255,0.75);
+    border-radius: 15px;
+}
+
+.reveal h3, .reveal h2, .reveal h1 {
+    text-align: center;
+    text-transform: none;
+}
+
+.reveal ol, .reveal ul {
+    display: block;
+    margin-left: 5%;
+}
