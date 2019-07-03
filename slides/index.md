@@ -23,7 +23,7 @@ JavaScript interpreters are built into modern browsers, so there is nothing to i
   </body>
 </html>
 ~~~
-{:.text-document title="index.html"}
+{:.text-document title="index.html" .no-eval}
 
 Point your browser to `file:///%sandbox%/index.html`. Find where the JavaScript "console" resides by looking for "Developer" views on your browser.
 
@@ -37,7 +37,7 @@ Our first modularization step is to get the JavaScript out of the HTML!
 var hello = "Hello, World!";
 console.log(hello);
 ~~~
-{:.text-document title="hello-world.js"}
+{:.text-document title="hello-world.js" .no-eval}
 
 ~~~
 <!doctype html>
@@ -47,7 +47,7 @@ console.log(hello);
   </body>
 </html>
 ~~~
-{:.text-document title="index.html"}
+{:.text-document title="index.html" .no-eval}
 
 ## Data Types
 
@@ -71,7 +71,7 @@ Primitive data types behave quite naturally: you could guess many actions that a
 ~~~
 console.log(1 + 1 == 2)
 ~~~
-{:.input}
+{:.input title="Console" .no-eval}
 
 ~~~
 true
@@ -98,7 +98,7 @@ function print(greeting) {     // Declare a function and initialize it to {...}
 };
 print(hello);
 ~~~
-{:.text-document title="hello-world.js"}
+{:.text-document title="hello-world.js" .no-eval}
 
 ## Properties and the `new` Keyword
 
@@ -108,7 +108,7 @@ An object has it's own properties that are accessed with a `.` between the objec
 var dog = {"name": "Rex", "greeting": "Bark!"};
 console.log(dog.name);
 ~~~
-{:.input}
+{:.input title="Console" .no-eval}
 
 The `new` keyword works together with constructors, which are functions that may use the keyword `this` to assign properties to the object being constructed. It is convention to capitalize the name of a constructor.
 
@@ -123,7 +123,7 @@ function Dog() {
 var rex = new Dog();               // Instantiate an object of "class" Dog
 rex.speak();                       // Good dog, Rex!
 ~~~
-{:.text-document title="rex.js"}
+{:.text-document title="rex.js" .no-eval}
 
 **Exercise:** Modify your `index.html` file to use this script instead of `hello-world.js`.
 
@@ -139,7 +139,7 @@ for (var i = 1; i < 10; i++) {
     fibonacci[i + 1] = fibonacci[i];
 };
 ~~~
-{:.input}
+{:.input title="Console"}
 
 **Exercise:** Wait a minute, that's not right! Modify the for loop to get the Fibonacci sequence. It should go like this: 1, 1, 2, 3, 5, 8, 13, 21, ...
 
@@ -154,7 +154,7 @@ var heading = document.createElement('h1');
 heading.textContent = "Hello, World Wide Web!";
 document.body.appendChild(heading);
 ~~~
-{:.text-document title="hello-web.js"}
+{:.text-document title="hello-web.js" .no-eval}
 
 The script doesn't change the source code for the webpage -- the HTML on file in `index.html` -- but it modifies the page elements by re-writing the browser's working version of the DOM that was initially described in the HTML file.
 
@@ -175,7 +175,7 @@ Remember, JavaScript is meant to be interpreted online, so you can "import" any 
   </body>
 </html>
 ~~~
-{:.text-document title="index.html"}
+{:.text-document title="index.html" .no-eval}
 
 Aside from importing Plotly.js and d3.js, the webpage now includes a `div` element identified as `fig-1`. A `div` element is a division, or section, of an HTML document. The `id` attribute is special in that its value is assumed to be unique within all elements of a webpage. Initially, the `div` has no content; the following script will add all the SVG elements to create the figure.
 
@@ -190,7 +190,7 @@ layout = {
 
 Plotly.plot("fig-1", data, layout)
 ~~~
-{:.text-document title="viz.js"}
+{:.text-document title="viz.js" .no-eval}
 
 **Exercise:** Once you have a plot visible in your webpage, find the JavaScript console under the "Developer" view again and examine the page elements (or, on most browsers, simply right-click the figure and choose to inspect the element). What class has been assigned to the original `div` identified by `figure-1`. Can you find a new `div` that Plotly.js added to the DOM?
 
@@ -200,7 +200,7 @@ A data jedi wouldn't write data *directly into the script* as we just did. Data 
 cd %sandbox%
 python -m SimpleHTTPServer 8000
 ~~~
-{:.input}
+{:.input title="Terminal"}
 
 Now point a browser to `http://localhost:8000` to verify the webserver is working.
 
@@ -220,7 +220,7 @@ function callback(response) {
 var url = "http://waterservices.usgs.gov/nwis/iv/?format=json&sites=01646500&period=P7D&parameterCd=00060";
 d3.json(url, callback)
 ~~~
-{:.text-document title="json.js"}
+{:.text-document title="json.js" .no-eval}
 
 The parameters embedded in the URL specify a data format, monitoring site, time period and observation variable. The callback function only evaluates after the function `d3.json` receives a response from `waterservices.usgs.gov`. This callback just prints a string representation of the JSON object retrieved.
 
@@ -251,7 +251,7 @@ function callback(response) {
 var url = "http://waterservices.usgs.gov/nwis/iv/?format=json&sites=01646500&period=P7D&parameterCd=00060";
 d3.json(url, callback);
 ~~~
-{:.text-document title="json-viz.js"}
+{:.text-document title="json-viz.js" .no-eval}
 
 A primary reason to learn JavaScript is to produce *interactive* vizualizations on the web, so let's leap forward once more. First, add a "select" form to the webpage.
 
@@ -263,7 +263,7 @@ A primary reason to learn JavaScript is to produce *interactive* vizualizations 
   </div>
 ...
 ~~~
-{:.text-document title="index.html"}
+{:.text-document title="index.html" .no-eval}
 
 Second, make the following changes to `json-viz.js`:
 
@@ -293,6 +293,6 @@ function callback(response) {
 };
 var url = "http://waterservices.usgs.gov/nwis/iv/?format=json&stateCd=md&period=P7D&parameterCd=00060&siteStatus=active";
 ~~~
-{:.text-document title="json-viz.js"}
+{:.text-document title="json-viz.js" .no-eval}
 
 **Exercise:** Study the [USGS Water Serivces tool](http://waterservices.usgs.gov/rest/IV-Test-Tool.html) and plot data from a different location or of a different type.
